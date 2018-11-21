@@ -63,7 +63,7 @@ class newspaper_fulltext extends Plugin
 		$checked = $key !== FALSE ? "checked" : "";
 		print "<hr/><input dojoType=\"dijit.form.CheckBox\" type=\"checkbox\" id=\"newspaper_fulltext_enabled\"
 			name=\"newspaper_fulltext_enabled\"
-			$checked>&nbsp;<label for=\"\"newspaper_fulltext_enabled\">" . __('Get fulltext via newspaper parser') . "</label>";
+			$checked>&nbsp;<label for=\"newspaper_fulltext_enabled\">" . __('Get fulltext via newspaper parser') . "</label>";
 		print "</div>";
 		}
 
