@@ -109,7 +109,7 @@ a = Article(u, memoize_articles = False, keep_article_html = True, fetch_images 
 a.download()
 a.parse()
 print (a.article_html)    
-END
+END;
 		$output = escapeshellcmd('/usr/bin/python3 ' . $cmd);
 		$out = exec($output, $res, $ret);
                 $html = trim(implode($res));
