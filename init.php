@@ -71,7 +71,7 @@ class newspaper_fulltext extends Plugin
 		{
 		$enabled_feeds = $this->host->get($this, "enabled_feeds");
 		if (!is_array($enabled_feeds)) $enabled_feeds = array();
-		$enable = checkbox_to_sql_bool($_POST["newspaper_fulltext_enabled"]) == 'true';
+		$enable = checkbox_to_sql_bool($_POST["newspaper_fulltext_enabled"]);
 		$key = array_search($feed_id, $enabled_feeds);
 		if ($enable)
 			{
