@@ -98,7 +98,7 @@ class newspaper_fulltext extends Plugin
 
 	function process_article($article)
 		{
-		$url = $article['link'];
+		$url = shellescapearg($article['link']);
 		$cmd = '/usr/bin/python3 /usr/share/nginx/tt-rss/plugins/newspaper_fulltext/np.py ' . $url;
     $cmd = <<<END
 import sys
@@ -110,9 +110,8 @@ a.download()
 a.parse()
 print (a.article_html)    
 END;
-		$output = escapeshellcmd('echo "'.$cmd.'"|/usr/bin/python3');
-		$out = exec($output, $res, $ret);
-                $html = trim(implode($res));
+		exec('echo "'.$cmd.'"|/usr/bin/python3', $output);
+                $html = trim(implode($output));
                 if ($html) {
                    $article["content"] = implode($res);
                 }
