@@ -139,13 +139,13 @@ END;
 		$tmp = array();
 		foreach($enabled_feeds as $feed)
 			{
-			$result = db_query("SELECT id FROM ttrss_feeds WHERE id = '$feed' AND owner_uid = " . $_SESSION["uid"]);
-			if (db_num_rows($result) != 0)
-				{
-				array_push($tmp, $feed);
-				}
-			}
+			$sth = $this->pdo->prepare("SELECT id FROM ttrss_feeds WHERE id = ? AND owner_uid = ?");
+			$sth->execute([$feed, $_SESSION['uid']]);
 
+			if ($row = $sth->fetch()) {
+				array_push($tmp, $feed);
+			}
+			
 		return $tmp;
 		}
 	}
