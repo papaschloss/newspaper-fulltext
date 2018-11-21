@@ -110,7 +110,7 @@ a.download()
 a.parse()
 print (a.article_html)    
 END;
-		$output = escapeshellcmd('/usr/bin/python3 ' . $cmd);
+		$output = escapeshellcmd('echo "'.$cmd.'"|/usr/bin/python3');
 		$out = exec($output, $res, $ret);
                 $html = trim(implode($res));
                 if ($html) {
