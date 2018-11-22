@@ -98,6 +98,7 @@ class newspaper_fulltext extends Plugin
 
 	function process_article($article)
 		{
+		$url = $article['link'];
 		//$url = escapeshellarg($article['link']);
 		//$cmd = '/usr/bin/python3 /usr/share/nginx/tt-rss/plugins/newspaper_fulltext/np.py ' . $url;
     $cmd = <<<END
