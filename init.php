@@ -113,8 +113,8 @@ print (a.article_html)
 END;
 		exec('echo "'.$cmd.'"|/usr/bin/python3', $output);
                 $html = trim(implode($output));
-                if ($html) {
-                   $article["content"] = implode($res);
+                if (strlen($html) > 0) {
+                   $article["content"] = $html;
                 }
 		return $article;
 		}
